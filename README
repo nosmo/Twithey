@@ -5,7 +5,7 @@ nosmo@netsoc.tcd.ie
 twithey.py does the posting. Run it without an argument for a public
 post, run it with one for a direct message to a username. As of
 version 1.1 twithey uses a Python ConfigParser-friendly config file
-stored in ~/.twitheyrc. The format should be as follows:
+stored in ~/.twithey/twitheyrc. The format should be as follows:
 
 [account]
 user: youruser

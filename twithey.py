@@ -24,7 +24,7 @@ proto = ""
 
 __author__ = "nosmo@netsoc.tcd.ie"
 
-def readConfig(path=os.path.expanduser("~") + "/.twitheyrc"):
+def readConfig(path=os.path.expanduser("~") + "/.twithey/twitheyrc"):
     """Reads configuration information from the twitheyrc file.
 
      path: an optional string pointing to the config file a user wishes to use
@@ -35,7 +35,7 @@ def readConfig(path=os.path.expanduser("~") + "/.twitheyrc"):
     global proto
 
     config = ConfigParser.ConfigParser()
-    config.read(os.path.expanduser("~") + "/.twitheyrc")
+    config.read(path)
 
     if not (config.has_option("account", "user") and config.has_option("account", "pass")):
         sys.stderr.write("Config file has no username or password!")
@@ -61,8 +61,9 @@ def getPage(url, data=None):
     base64string = base64.encodestring('%s:%s' % (username, password))[:-1]
     if data:
         data = data + "&" + urllib.urlencode({"source": "twithey"})
-    else:
-        data =  urllib.urlencode({"source": "twithey"})
+    # This breaks the timeline - I have no idea why but it isn't of much use
+    #else:
+    #    data =  urllib.urlencode({"source": "twithey"})
     req = urllib2.Request(url, data)
     req.add_header("Authorization", "Basic %s" % base64string)
     try:
@@ -79,7 +80,7 @@ def getTimeline(proto=None):
     
     theurl = '%s://twitter.com/statuses/friends_timeline.xml' % proto
     results = getPage(theurl)
-    timeline = open("timeline.xml", "w")
+    timeline = open(os.path.expanduser("~") + "/.twithey/timeline.xml", "w")
     timeline.write(results)
     timeline.close()
 

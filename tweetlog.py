@@ -95,7 +95,7 @@ def parseTimeline():
 
     timeline = TimeLine()
 
-    f = open("timeline.xml", "r")
+    f = open(os.path.expanduser("~") + "/.twithey/timeline.xml", "r")
     data = f.read()
     soup = BeautifulSoup.BeautifulStoneSoup(data)
     statuses = soup.findAll("status")
