@@ -1,0 +1,24 @@
+Twithey
+nosmo@netsoc.tcd.ie
+--
+
+twithey.py does the posting. Run it without an argument for a public
+post, run it with one for a direct message to a username. As of
+version 1.1 twithey uses a Python ConfigParser-friendly config file
+stored in ~/.twitheyrc. The format should be as follows:
+
+[account]
+user: youruser
+pass: yourpassword
+
+[connection]
+https: yes
+
+At the moment the options described are the only ones that are
+supported. I'm open to suggestion for extra options.
+
+tweetlog.py will print out your twitter timeline. Combine with less
+for massive damage. This will still require you to fill out the
+username/password part of heywitter.py.
+
+Once again, make sure to fill in your details!
