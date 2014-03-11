@@ -2,6 +2,10 @@ Twithey
 nosmo@netsoc.tcd.ie
 --
 
+ACHTUNG! 
+Sadly since 2012, Twithey does not work with the OAuth API. I have zero motivation to fix this but maybe some day. 
+
+--
 twithey.py does the posting. Run it without an argument for a public
 post, run it with one for a direct message to a username. As of
 version 1.1 twithey uses a Python ConfigParser-friendly config file
